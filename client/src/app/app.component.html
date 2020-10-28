@@ -1,0 +1,38 @@
+<button (click)="optin()" class="btn btn-primary col-md-2 mb-2">{{optInBtnTitle}}</button>
+<div>Public Key: {{serverPublicKey}}</div>
+<div>Private Key: {{serverPrivateKey}}</div>
+<br />
+
+<button (click)="send()" class="btn btn-primary col-md-2 mb-2">Send msg to all</button>
+<div>
+    <input [(ngModel)]="Msg" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Id
+                        </th>
+                        <th scope="col">
+                            push-endpoint
+                        </th>
+                        <th scope="col">
+                            Sent last message?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let subscriber of subscribers">
+                        <th>{{subscriber?.id}}</th>
+                        <td>{{subscriber?.endpoint}}</td>
+                        <td>{{subscriber?.Sent}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
